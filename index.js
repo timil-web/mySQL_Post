@@ -13,11 +13,12 @@ app.set("view engine", "ejs");
 app.set("views",path.join(__dirname,"/views"));
 
 const connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	database: 'delta_app',
-	password: 'Mysql@7424'
+	host: process.env.MYSQL_HOST || 'localhost',
+	user: process.env.MYSQL_USER || 'root',
+	database: process.env.MYSQL_DATABASE,
+	password: process.env.MYSQL_PASSWORD
 });
+
 let getRandomUser = () => {
 	return[
 		faker.string.uuid(),
