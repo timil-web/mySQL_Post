@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const { faker } = require('@faker-js/faker');
 const mysql = require('mysql2');
 const express = require('express');
@@ -5,6 +7,7 @@ const app = express();
 const path = require("path");
 const methodOverride = require("method-override");
 const { v4: uuidv4 } = require('uuid');
+
 
 app.use(express.json());
 app.use(methodOverride("_method"));
