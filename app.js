@@ -15,12 +15,13 @@ app.use(express.urlencoded({extended: true}))
 app.set("view engine", "ejs");
 app.set("views",path.join(__dirname,"/views"));
 
-const connection = mysql.createConnection({
-	host: process.env.MYSQL_HOST || 'localhost',
-	user: process.env.MYSQL_USER || 'root',
-	database: process.env.MYSQL_DATABASE,
-	password: process.env.MYSQL_PASSWORD
-});
+// const connection = mysql.createConnection({
+// 	host: process.env.MYSQL_HOST || 'localhost',
+// 	user: process.env.MYSQL_USER || 'root',
+// 	database: process.env.MYSQL_DATABASE,
+// 	password: process.env.MYSQL_PASSWORD
+// });
+const connection = mysql.createConnection(process.env.MYSQL_URL);
 
 const port = process.env.MYSQL_PORT;
 
